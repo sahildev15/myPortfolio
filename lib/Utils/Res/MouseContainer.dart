@@ -36,7 +36,7 @@ class _HoverOptionTileState extends State<HoverOptionTile> {
         child: Center(
           child: Text(
             widget.label,
-            style: AppTextStyles.FONT21FW600BLACK.copyWith(color: textColor),
+            style: AppTextStyles.FONT21FW600BLACK(context).copyWith(color: textColor),
           ),
         ),
       ),
