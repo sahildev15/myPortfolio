@@ -122,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           margin: EdgeInsets.symmetric(vertical: 30),
                           width: 900,
                           child: Text(
-                            "Hi, I'm Sahil — a Senior Flutter Developer with a deep passion for crafting beautiful, high-performance apps. From transforming ideas into seamless mobile experiences to leading efficient, cross-platform development, I thrive on building impactful digital products. I’m constantly evolving with new technologies, and I believe in not just writing code, but creating value. Let’s build the future, one app at a time."
+                            "Hi, I'm Sahil — a Senior Flutter Developer with a deep passion for crafting beautiful, high-performance apps. From transforming ideas into seamless mobile experiences to leading efficient, cross-platform development, I thrive on building impactful digital products. I’m constantly evolving with new technologies, and I believe in not just writing code, but creating value. Let’s build the future."
                             , maxLines: 10,
                             textAlign: TextAlign.center,
                             style: AppTextStyles.FONT18FW300WHITE(context),
@@ -131,27 +131,25 @@ class _HomeScreenState extends State<HomeScreen> {
                         Container(
                           height: 50,
                           margin: const EdgeInsets.symmetric(vertical: 20),
-                          child: ListView.builder(
-                            padding: EdgeInsets.zero,
-                            scrollDirection: Axis.horizontal,
-                            itemCount: controller.option.length,
-                            shrinkWrap: true,
-                            itemBuilder: (context, index) {
+                          child: Row(
+                            children: List.generate(controller.option.length, (index) {
                               return GestureDetector(
-                                onTap: (){
-                                  if(controller.option[index] =="Hire Me"){
+                                onTap: () {
+                                  if (controller.option[index] == "Hire Me") {
                                     controller.scrollTo(controller.contactKey);
-                                  } else{
+                                  } else {
                                     const cvUrl = 'assets/icon/sahilresume.pdf';
                                     final anchor = html.AnchorElement(href: cvUrl)
                                       ..setAttribute("download", "Sahil_Resume.pdf")
                                       ..click();
                                   }
                                 },
-                                child: HoverOptionTile(
-                                    label: controller.option[index]),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                                  child: HoverOptionTile(label: controller.option[index]),
+                                ),
                               );
-                            },
+                            }),
                           ),
                         ),
                         SizedBox(height: 50,),
